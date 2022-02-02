@@ -1,0 +1,14 @@
+{% extends 'bbs/base.html' %}
+
+{% block content %}
+<h1>{{message}}</h1>
+
+<form action="{% url 'update' article.id%}" method="post" class="form">
+    {% csrf_token %}
+    {{articleForm}}
+    <div style="margin-top: 30px;">
+        <button type="submit" class="btn btn-outline-primary">更新</button>
+        <a href="{% url 'detail' article.id%}"><button class="btn btn-outline-danger">詳細に戻る</button></a>
+    </div>
+</form>
+{% endblock %}

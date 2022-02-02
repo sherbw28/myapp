@@ -7,4 +7,6 @@
         {{article.name}}
     </p>
     <p><a href="{% url 'index' %}" class="btn btn-outline-primary">一覧へ戻る</a></p>
+    <p><a href="{% url 'edit' article.id%}" class="btn btn-outline-secondary">編集する</a></p>
+    <p><a href="{% url 'delete' article.id%}" class="btn btn-outline-danger">削除</a></p>
 {% endblock %}
