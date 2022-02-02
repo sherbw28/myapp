@@ -1,5 +1,10 @@
 {% extends 'bbs/base.html' %}
 
 {% block content %}
-    {{post.id}}
+<h1>paiza BBS</h1>
+    <p>
+        {{article.id}},
+        {{article.name}}
+    </p>
+    <p><a href="{% url 'index' %}" class="btn btn-outline-primary">一覧へ戻る</a></p>
 {% endblock %}

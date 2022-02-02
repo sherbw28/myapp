@@ -14,4 +14,27 @@ def index(request):
 
 def detail(request, id):
     article = get_object_or_404(Article, pk=id)
-    return render(request, 'bbs/detail.html', {'post': article})
+    return render(request, 'bbs/detail.html', {'article': article})
+
+def create(request):
+    article = Article(content='createメソッド', name="サトウ")
+    article.save()
+    
+    articles = Article.objects.all()
+    post ={
+        "title": "これはタイトルです",
+        'players': ["勇者", "戦士", "魔法使い"],
+        'articles': articles
+    }
+    return render(request, 'bbs/index.html', post)
+
+def delete(request, id):
+    article = get_object_or_404(Article, pk=id)
+    article.delete()
+    articles = Article.objects.all()
+    post ={
+        "title": "これはタイトルです",
+        'players': ["勇者", "戦士", "魔法使い"],
+        'articles': articles,
+    }
+    return render(request, 'bbs/index.html', post)
